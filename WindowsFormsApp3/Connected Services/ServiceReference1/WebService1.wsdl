@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSql">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadSqlResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="dsCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cmd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dsCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsCreateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="executeCmd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cmdString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="executeCmdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="listSort">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ckBox2" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="ckBox8" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="ckBox9" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="ckBox10" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="ckBox3" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="ckBox4" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="ckBox5" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="ckBox6" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="ckBox7" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="txt2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cBox1" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="value1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="value2" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listSortResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listSortResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadSqlSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadSql" />
+  </wsdl:message>
+  <wsdl:message name="LoadSqlSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadSqlResponse" />
+  </wsdl:message>
+  <wsdl:message name="dsCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:dsCreate" />
+  </wsdl:message>
+  <wsdl:message name="dsCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:dsCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="executeCmdSoapIn">
+    <wsdl:part name="parameters" element="tns:executeCmd" />
+  </wsdl:message>
+  <wsdl:message name="executeCmdSoapOut">
+    <wsdl:part name="parameters" element="tns:executeCmdResponse" />
+  </wsdl:message>
+  <wsdl:message name="listSortSoapIn">
+    <wsdl:part name="parameters" element="tns:listSort" />
+  </wsdl:message>
+  <wsdl:message name="listSortSoapOut">
+    <wsdl:part name="parameters" element="tns:listSortResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSql">
+      <wsdl:input message="tns:LoadSqlSoapIn" />
+      <wsdl:output message="tns:LoadSqlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="dsCreate">
+      <wsdl:input message="tns:dsCreateSoapIn" />
+      <wsdl:output message="tns:dsCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="executeCmd">
+      <wsdl:input message="tns:executeCmdSoapIn" />
+      <wsdl:output message="tns:executeCmdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listSort">
+      <wsdl:input message="tns:listSortSoapIn" />
+      <wsdl:output message="tns:listSortSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSql">
+      <soap:operation soapAction="http://tempuri.org/LoadSql" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dsCreate">
+      <soap:operation soapAction="http://tempuri.org/dsCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="executeCmd">
+      <soap:operation soapAction="http://tempuri.org/executeCmd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listSort">
+      <soap:operation soapAction="http://tempuri.org/listSort" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSql">
+      <soap12:operation soapAction="http://tempuri.org/LoadSql" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dsCreate">
+      <soap12:operation soapAction="http://tempuri.org/dsCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="executeCmd">
+      <soap12:operation soapAction="http://tempuri.org/executeCmd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listSort">
+      <soap12:operation soapAction="http://tempuri.org/listSort" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="https://localhost:44324/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="https://localhost:44324/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
